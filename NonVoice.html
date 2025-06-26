@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Non Voice Process - TechPlatform.in Products</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #52c456;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-image: url('images/produte background.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      color: rgb(197, 17, 17);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 76px;
+      margin: 0;
+      color: red;
+    }
+
+    .logo-link {
+      text-decoration: none;
+    }
+
+    header img {
+      height: 80px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    nav.navbar {
+      background-color: #333;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    h3 {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .btn-group button {
+      padding: 12px 25px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-group button:hover {
+      background-color: #0056b3;
+    }
+
+    .content-section {
+      display: flex;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .content-section img {
+      height: 300px;
+      width: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    form {
+      display: none;
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .submit-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    #message {
+      color: green;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    footer h6 {
+      font-size: 20px;
+      margin: 10px;
+      padding: 10px;
+      background-color: crimson;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="products.html" class="logo-link"><h1>TechPlatform.in non voice process </h1></a>
+  <img src="images/aboutlogo.jpg" alt="Logo">
+</header>
+
+
+<main>
+  <div class="btn-group">
+    <button onclick="showForm('chat')">Live Chat Support</button>
+    <button onclick="showForm('social')">Social Media</button>
+    <button onclick="showForm('email')">Email Support</button>
+  </div>
+
+  <div class="content-section">
+    <img src="images/non voice logo.jpg" alt=" non Voice Process">
+    <p>
+       In the Business Process Outsourcing (BPO) field, a non-voice process refers to tasks that do not involve direct verbal communication with clients.
+     These processes primarily rely on written communication, such as email, chat, or documentation, and often involve back-office support functions.
+      <br>Examples include data entry, email support, and chat support. 
+     Key Characteristics of Non-Voice Processes:
+     <br>Focus on written communication:
+     Instead of phone calls, communication with clients or customers is handled through text-based channels. 
+      <br>Back-office tasks:
+      Many non-voice processes involve tasks that are not directly customer-facing, like data entry, HR support, or administrative functions. 
+      <br>Data-driven tasks:
+      Non-voice processes often involve working with data, whether it's entering, processing, or analyzing information. 
+      Emphasis on accuracy and detail:
+      Due to the reliance on written communication, accuracy and attention to detail are crucial for successful non-voice processes. 
+      <br>Technological support:
+      Non-voice processes frequently utilize various software and technology to manage data, communicate with clients, and complete tasks. 
+     <br> Examples of Non-Voice Processes:
+
+     </p>
+  </div>
+
+  <!-- Chat Form -->
+  <form id="chatForm" onsubmit="return handleSubmit(event, 'chat')">
+    <h3>Live Chat Support</h3>
+    <input type="text" id="chatName" placeholder="Your Name" required>
+    <input type="email" id="chatEmail" placeholder="Your Email" required>
+    <input type="tel" id="chatPhone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+    <input type="text" id="chatPlatform" placeholder="Preferred Chat Platform (e.g., WhatsApp)" required>
+    <textarea id="chatMessage" placeholder="Your Message" required></textarea>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+
+  <!-- Social Form -->
+  <form id="socialForm" onsubmit="return handleSubmit(event, 'social')">
+    <h3>Social Media</h3>
+    <input type="text" id="socialName" placeholder="Your Name" required>
+    <input type="email" id="socialEmail" placeholder="Your Email" required>
+    <input type="text" id="socialPlatform" placeholder="Platform Used (e.g., Facebook)" required>
+    <textarea id="socialMessage" placeholder="Your Message or Feedback" required></textarea>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+
+  <!-- Email Form -->
+  <form id="emailForm" onsubmit="return handleSubmit(event, 'email')">
+    <h3>Email Support</h3>
+    <input type="text" id="emailName" placeholder="Your Name" required>
+    <input type="email" id="emailAddress" placeholder="Email Address" required>
+    <input type="tel" id="emailPhone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+    <input type="text" id="emailPurpose" placeholder="Purpose" required>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+
+  <p id="message"></p>
+</main>
+
+<footer>
+  <h6>&copy; 2025 TechPlatform.in - All Rights Reserved</h6>
+</footer>
+
+<script>
+  function showForm(type) {
+    const forms = ['chatForm', 'socialForm', 'emailForm'];
+    forms.forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+    document.getElementById(type + 'Form').style.display = 'block';
+    document.getElementById('message').textContent = '';
+  }
+
+  function handleSubmit(event, type) {
+    event.preventDefault();
+
+    let data = '';
+    if (type === 'chat') {
+      data = `Name: ${document.getElementById('chatName').value}\n` +
+             `Email: ${document.getElementById('chatEmail').value}\n` +
+             `Phone: ${document.getElementById('chatPhone').value}\n` +
+             `Platform: ${document.getElementById('chatPlatform').value}\n` +
+             `Message: ${document.getElementById('chatMessage').value}`;
+    } else if (type === 'social') {
+      data = `Name: ${document.getElementById('socialName').value}\n` +
+             `Email: ${document.getElementById('socialEmail').value}\n` +
+             `Platform: ${document.getElementById('socialPlatform').value}\n` +
+             `Message: ${document.getElementById('socialMessage').value}`;
+    } else if (type === 'email') {
+      data = `Name: ${document.getElementById('emailName').value}\n` +
+             `Email: ${document.getElementById('emailAddress').value}\n` +
+             `Phone: ${document.getElementById('emailPhone').value}\n` +
+             `Purpose: ${document.getElementById('emailPurpose').value}`;
+    }
+
+    const blob = new Blob([data], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `${type}_support.txt`;
+    link.click();
+
+    document.getElementById('message').textContent = 'Data saved successfully!';
+    document.getElementById(type + 'Form').reset();
+
+    setTimeout(() => {
+      document.getElementById(type + 'Form').style.display = 'none';
+      document.getElementById('message').textContent = '';
+    }, 3000);
+
+    return false;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hover Info Cards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #17e189;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-image: url('images/produte background.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      color: red;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+      color: red;
+    }
+
+    .logo-link {
+      text-decoration: none;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav.navbar {
+      background-color: #007BFF;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav.navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav.navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav.navbar a:hover {
+      text-decoration: underline;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 280px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+   
+     .nonvoice-card:hover {
+      background-color: #ffe6e6;
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+      transform: scale(1.05);
+      border: 2px solid red;
+    }
+     .testing-card:hover {
+      background-color: #ffe6e6;
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+      transform: scale(1.05);
+      border: 2px solid red;
+    }
+     .softwaredevelopment-card:hover {
+      background-color: #ffe6e6;
+      box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+      transform: scale(1.05);
+      border: 2px solid red;
+    }
+
+    .card-header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      font-size: 1.3em;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .card-content {
+      padding: 20px;
+      transition: all 0.4s ease;
+    }
+
+    .card-content ul {
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+
+    .voice-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .voice-btn:hover {
+      background-color: #218838;
+    }
+
+    #inboundForm {
+      display: none;
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    .submit-btn {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+
+    #viewMessage {
+      margin-top: 20px;
+      display: none;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    footer h6{
+      font-size: 20px;
+      margin : 10px;
+      padding: 10px;
+      background-color: crimson;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo-link"><h1>TechPlatform.in Products</h1></a>
+    <img src="images/aboutlogo.jpg" alt="Logo">
+  </header>
+
+  <div class="card-container">
+    <div class="card voice-card">
+      <div class="card-header"><a href="voice.html">Voice Process</a></div>
+      <div class="card-content">
+        <p><strong>Introduction:</strong> Voice-based systems allow users to interact using speech. These are used in call centers, virtual assistants, and IVR systems.</p>
+        <p><strong>Types:</strong></p>
+        <ul>
+          <li>Inbound Call Support</li>
+          <li>Outbound Call Services</li>
+          <li>Interactive Voice Response (IVR)</li>
+          <li>Voice Assistants (e.g., Alexa, Google Assistant)</li>
+          <li>Speech-to-Text Systems</li>
+        </ul>
+
+
+        <form id="inboundForm" onsubmit="return handleSubmit()">
+          <h4>Inbound Call Request</h4>
+          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="email" id="email" placeholder="Your Email" required>
+          <input type="text" id="phone" placeholder="Phone Number" required pattern="[0-9]{10}">
+          <textarea id="message" placeholder="Message" required></textarea>
+          <button class="submit-btn" type="submit">Submit</button>
+          <p class="error" id="errorMsg"></p>
+        </form>
+
+        <!-- View Submitted Message -->
+        <div id="viewMessage">
+          <h4>View Submitted Message:</h4>
+          <pre id="messageOutput" style="white-space: pre-wrap;"></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Cards (Non-Voice, Testing, Software) -->
+    <div class="card">
+      <div class="card-header"><a href="NonVoice.html"> Non Voice Process</a></div>
+      <div class="card-content">
+        <p><strong>Introduction:</strong> Non-voice communication uses text or visual platforms to provide customer or user support.</p>
+        <ul>
+          <li>Email Support</li>
+          <li>Live Chat Support</li>
+          <li>Social Media</li>
+          <li>Ticketing Systems</li>
+          <li>Community Forums</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+       <div class="card-header"><a href="Testing.html"> Testing</a></div>
+      <div class="card-content">
+        <p><strong>Introduction:</strong> Software testing ensures that the product meets quality standards and functions as expected.</p>
+        <ul>
+          <li>Manual Testing</li>
+          <li>Automation Testing</li>
+          <li>Unit Testing</li>
+          <li>Integration Testing</li>
+          <li>System Testing</li>
+          <li>Acceptance Testing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+       <div class="card-header"><a href="Software.html"> Software Development</a></div>
+      <div class="card-content">
+        <p><strong>Introduction:</strong> Software development is the process of designing, coding, testing, and maintaining applications or systems.</p>
+        <ul>
+          <li>Frontend Development</li>
+          <li>Backend Development</li>
+          <li>Full-Stack Development</li>
+          <li>Agile</li>
+          <li>Waterfall</li>
+          <li>DevOps</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleSubmit() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+
+      // Validation
+      if (!name || !email || !phone || !message) {
+        errorMsg.textContent = 'Please fill all fields.';
+        return false;
+      }
+
+      if (!/^[0-9]{10}$/.test(phone)) {
+        errorMsg.textContent = 'Phone number must be 10 digits.';
+        return false;
+      }
+
+      errorMsg.textContent = '';
+
+      // Format the data
+      const formData = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
+
+      // Download as .txt file
+      const blob = new Blob([formData], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `Inbound_Request_${Date.now()}.txt`;
+      a.click();
+
+      // Show message on page
+      document.getElementById('messageOutput').textContent = formData;
+      document.getElementById('viewMessage').style.display = 'block';
+
+      // Clear form
+      document.getElementById('inboundForm').reset();
+
+      return false;
+    }
+  </script>
+  <div>
+  <footer style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+  <h6>TechPlatform.in</h6>
+  <img src="images/aboutlogo.jpg" alt="" style="height: 50px;">
+  </footer>
+  </div>
+</body>
+</html>

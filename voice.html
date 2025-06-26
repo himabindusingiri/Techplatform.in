@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voice Process - TechPlatform.in Products</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #50b15a;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-image: url('images/produte background.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      color: rgb(197, 17, 17);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 76px;
+      margin: 0;
+      color: red;
+    }
+
+    .logo-link {
+      text-decoration: none;
+    }
+
+    header img {
+      height: 80px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav.navbar {
+      background-color: #333;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    h3 {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .btn-group button {
+      padding: 12px 25px;
+      margin: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-group button:hover {
+      background-color: #0056b3;
+    }
+
+    form {
+      display: none;
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .submit-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    #message {
+      color: green;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    footer h6 {
+      font-size: 20px;
+      margin: 10px;
+      padding: 10px;
+      background-color: crimson;
+      color: white;
+      text-align: center;
+    }
+
+    .content-section {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 20px;
+    }
+
+    .content-section img {
+      height: 300px;
+      width: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .content-section p {
+      max-width: 600px;
+      font-size: 15px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="products.html" class="logo-link"><h1>TechPlatform.in voice page</h1></a>
+    <img src="images/aboutlogo.jpg" alt="Logo">
+  </header>
+
+  <h3>This is Voice Process Page</h3>
+
+  <!-- Main -->
+  <main>
+    <!-- Buttons -->
+    <div class="btn-group">
+      <button onclick="showForm('request')">Request Call</button>
+      <button onclick="showForm('feedback')">Feedback</button>
+      <button onclick="showForm('outbound')">Outbound Call</button>
+    </div>
+
+    <!-- Image & Paragraph Side-by-Side -->
+    <div class="content-section">
+      <img src="images/voicelogo.jpg" alt="Voice Process">
+      <p>
+        A voice process, or voice-based process, in a Business Process Outsourcing (BPO) context, 
+    refers to customer interactions conducted via phone calls or other voice-based communication channels.
+     This involves resolving customer queries, providing support, and handling various aspects of the customer journey,
+      according to Call Centre Helper. 
+        <strong>Key aspects of a voice process:</strong><br>
+          <strong>Direct Customer Communication:</strong> Real-time verbal interaction with customers.
+          <strong>Various Stages of Customer Interaction:</strong> From inquiries to tech support.
+          <strong>Inbound vs. Outbound:</strong> Inbound (support) vs. outbound (sales, surveys).
+          <strong>Communication Skills:</strong> Language fluency and professionalism are key.
+        </ul>
+      </p>
+    </div>
+
+    <!-- Forms -->
+    <form id="requestForm" onsubmit="return handleSubmit(event, 'request')">
+      <h3>Request Call</h3>
+      <input type="text" id="requestName" placeholder="Your Name" required>
+      <input type="email" id="requestEmail" placeholder="Your Email" required>
+      <input type="tel" id="requestPhone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+      <textarea id="requestMessage" placeholder="Your Message" required></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <form id="feedbackForm" onsubmit="return handleSubmit(event, 'feedback')">
+      <h3>Feedback</h3>
+      <input type="text" id="feedbackName" placeholder="Your Name" required>
+      <input type="email" id="feedbackEmail" placeholder="Your Email" required>
+      <textarea id="feedbackMessage" placeholder="Your Feedback" required></textarea>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <form id="outboundForm" onsubmit="return handleSubmit(event, 'outbound')">
+      <h3>Outbound Call</h3>
+      <input type="text" id="outboundName" placeholder="Your Name" required>
+      <input type="tel" id="outboundPhone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+      <input type="text" id="outboundPurpose" placeholder="Purpose" required>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <p id="message"></p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <h6>&copy; 2025 TechPlatform.in - All Rights Reserved</h6>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function showForm(type) {
+      ['request', 'feedback', 'outbound'].forEach(t => {
+        document.getElementById(t + 'Form').style.display = 'none';
+      });
+      document.getElementById(type + 'Form').style.display = 'block';
+      document.getElementById('message').textContent = '';
+    }
+
+    function handleSubmit(event, type) {
+      event.preventDefault();
+
+      let data = '';
+      if (type === 'request') {
+        data = `Name: ${document.getElementById('requestName').value}\n` +
+               `Email: ${document.getElementById('requestEmail').value}\n` +
+               `Phone: ${document.getElementById('requestPhone').value}\n` +
+               `Message: ${document.getElementById('requestMessage').value}`;
+      } else if (type === 'feedback') {
+        data = `Name: ${document.getElementById('feedbackName').value}\n` +
+               `Email: ${document.getElementById('feedbackEmail').value}\n` +
+               `Feedback: ${document.getElementById('feedbackMessage').value}`;
+      } else if (type === 'outbound') {
+        data = `Name: ${document.getElementById('outboundName').value}\n` +
+               `Phone: ${document.getElementById('outboundPhone').value}\n` +
+               `Purpose: ${document.getElementById('outboundPurpose').value}`;
+      }
+
+      const blob = new Blob([data], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${type}_data.txt`;
+      link.click();
+
+      document.getElementById('message').textContent = 'Data saved successfully!';
+      document.getElementById(type + 'Form').reset();
+
+      setTimeout(() => {
+        document.getElementById(type + 'Form').style.display = 'none';
+        document.getElementById('message').textContent = '';
+      }, 3000);
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>

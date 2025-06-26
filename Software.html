@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPlatform.in</title>
+   <link rel="stylesheet" href="1style.css">
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-image: url(' images/produte background.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            color: rgb(197, 17, 17);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1{
+          font-size: 80px;
+        }
+
+           body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+     
+      background-size: cover;
+      background: #50b15a;
+    }
+    .btn-group {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .btn-group button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-group button:hover {
+      background-color: #0056b3;
+    }
+
+    form {
+      display: none;
+      max-width: 500px;
+      background: #ffffffdd;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .submit-btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    #message {
+      text-align: center;
+      font-weight: bold;
+      color: green;
+      margin-top: 20px;
+    }
+
+
+
+        h2 {
+            margin: 0;
+        }
+        footer h6{
+      font-size: 20px;
+      margin : 10px;
+      padding: 10px;
+      background-color: crimson;
+      
+
+    }
+    h3{
+      font-size: 20px;
+    }
+    </style>
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+  <a href="products.html" class="logo-link"><h1> TechPlatform.in  software </h1></a>
+  <img src=" images/aboutlogo.jpg" alt="" style="height: 50px;">
+</header>
+<!-- Button Selection -->
+  <div class="btn-group">
+    <button onclick="showForm('fullstack')">Full Stack Developer</button>
+    <button onclick="showForm('frontend')">Front-End Developer</button>
+    <button onclick="showForm('backend')">Back-End Developer</button>
+  </div>
+
+  <!-- Form -->
+  <form id="devForm" onsubmit="return handleSubmit(event)">
+    <h3 id="formTitle">Developer Request Form</h3>
+    <input type="text" id="devType" name="devType" placeholder="Developer Type" readonly>
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <input type="email" id="email" name="email" placeholder="Your Email" required>
+    <textarea id="details" name="details" placeholder="Project requirements or description" required></textarea>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+      <!-- Confirmation Message -->
+  <div id="message"></div>
+    <main style="display: flex; align-items: flex-start; padding: 10px; gap: 5px;">
+     <img src=" images/software logo.jpg" alt="Voice Process" style="height: 300px; width: 300px; object-fit: cover; border-radius: 10px;">
+  
+      <p style="max-width: 600px; font-size: 15px; margin: 0;">
+    Software development is the process of designing, creating, testing, and maintaining computer programs and applications. 
+    It involves activities like analyzing requirements, designing architectures, writing code, testing, deploying,
+     and ongoing maintenance of software. Software development is crucial for creating software solutions that meet 
+     user needs and can be used in various applications, from operating systems to mobile apps.
+      <br>Design:
+      This involves planning how the software will work and how users will interact with it.
+       It includes creating wireframes, prototypes, and system architecture diagrams. 
+       <br>Programming/Coding:
+       This is the process of writing the code that instructs the computer what to do. 
+       Software developers use programming languages to create the software. 
+        <br>Testing:
+       This involves checking the software for errors and bugs to ensure it functions correctly. 
+       Testing can be done at different levels, from unit tests to integration and system tests. 
+         <br>Deployment:
+           This is the process of releasing the software to users or integrating it into a system. 
+            <br>Maintenance:
+           This involves making updates, fixing bugs, and ensuring the software continues to function as expected over time. 
+           Software development is an iterative process, meaning that developers often revisit and refine their designs 
+           and code as they learn more about the requirements and testing results. 
+
+  </p>  
+
+  <!-- Script -->
+  <script>
+    function showForm(type) {
+      const form = document.getElementById('devForm');
+      const title = document.getElementById('formTitle');
+      const devTypeInput = document.getElementById('devType');
+
+      form.style.display = 'block';
+
+      if (type === 'fullstack') {
+        devTypeInput.value = 'Full Stack Developer';
+        title.textContent = 'Full Stack Developer Request';
+      } else if (type === 'frontend') {
+        devTypeInput.value = 'Front-End Developer';
+        title.textContent = 'Front-End Developer Request';
+      } else if (type === 'backend') {
+        devTypeInput.value = 'Back-End Developer';
+        title.textContent = 'Back-End Developer Request';
+      }
+
+      document.getElementById('message').textContent = '';
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const devType = document.getElementById('devType').value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const details = document.getElementById('details').value;
+
+      const data = `Developer Type: ${devType}\nName: ${name}\nEmail: ${email}\nDetails: ${details}`;
+      const blob = new Blob([data], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${devType.replace(/ /g, '_')}_request.txt`;
+      link.click();
+
+      document.getElementById('message').textContent = 'Your request has been saved!';
+      event.target.reset();
+      setTimeout(() => {
+        form.style.display = 'none';
+        document.getElementById('message').textContent = '';
+      }, 3000);
+    }
+  </script>
+
+  </main>
+</head>
+<body>
+   <div>
+  <footer style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+  <h6>TechPlatform.in</h6>
+   <p>&copy; 2025 TechPlatform.in. All rights reserved.</p>
+    <p>Contact: <a href="mailto:support@techplatform.in">support@techplatform.in</a></p>
+    <p><a href="https://techplatform.in" target="_blank">Visit our website</a></p>
+  <img src=" images/aboutlogo.jpg" alt="" style="height: 50px;">
+
+  </footer>
+  </div>
+</body>
+</html>
+

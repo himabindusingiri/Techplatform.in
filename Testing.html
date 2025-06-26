@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPlatform.in</title>
+   <link rel="stylesheet" href="1style.css">
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+             background-image: url(' images/produte background.jpeg');/* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            color: rgb(197, 17, 17);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1{
+          font-size: 80px;
+        }
+
+         body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-size: cover;
+      background: #50b15a;
+    }
+    .btn-group {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .btn-group button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-group button:hover {
+      background-color: #0056b3;
+    }
+
+    form {
+      display: none;
+      max-width: 500px;
+      background: #ffffffdd;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .submit-btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    #message {
+      text-align: center;
+      font-weight: bold;
+      color: green;
+      margin-top: 20px;
+    }
+
+
+        h2 {
+            margin: 0;
+        }
+        footer h6{
+      font-size: 20px;
+      margin : 10px;
+      padding: 10px;
+      background-color: crimson;
+      
+
+    }
+    h3{
+      font-size: 20px;
+    }
+    </style>
+<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <a href="products.html" class="logo-link"><h1> TechPlatform.in testing </h1></a>
+  <img src=" images/aboutlogo.jpg" alt="" style="height: 50px;">
+</header>
+
+
+
+<!-- Button Selection -->
+  <div class="btn-group">
+    <button onclick="showForm('manual')">Manual Testing</button>
+    <button onclick="showForm('automation')">Automation Testing</button>
+    <button onclick="showForm('performance')">Performance Testing</button>
+  </div>
+
+  <!-- Form -->
+  <form id="testForm" onsubmit="return handleSubmit(event)">
+    <h3 id="formTitle">Testing Form</h3>
+    <input type="text" id="testType" name="testType" placeholder="Test Type" readonly>
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <input type="email" id="email" name="email" placeholder="Your Email" required>
+    <textarea id="details" name="details" placeholder="Details about the testing requirement" required></textarea>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+
+  <!-- Confirmation Message -->
+  <div id="message"></div>
+
+    
+      
+    <main style="display: flex; align-items: flex-start; padding: 10px; gap: 5px;">
+     <img src=" images/testing logo.jpg" alt="Voice Process" style="height: 300px; width: 300px; object-fit: cover; border-radius: 10px;">
+  
+      <p style="max-width: 600px; font-size: 15px; margin: 0;">
+   Software testing is an important process in the Software Development Lifecycle(SDLC).
+    It involves verifying and validating that a Software Application is free of bugs, 
+    meets the technical requirements set by its Design and Development, and satisfies user requirements efficiently and effectively.
+
+   <br> we are learning Software Testing with the related topics, which are as follows.
+              <br>Benefits of Software Testing
+              It is important to learn the basics, whether it is software testing or anything else,
+               you always need to start from the basics and make your foundation strong, and then 
+               proceed to the advanced level. If you want to learn software testing in a structured
+                approach, then you can enroll in our Manual to Automation Testing Course.
+
+                <br>What is Software Testing?
+               <br>Software Testing is a process of verifying and validating whether the Software Product or 
+               Application is working as expected or not. The complete testing includes identifying errors and 
+               bugs that cause future problems for the performance of an application.
+
+               <br>Perform end-to-end test automation, including AI-powered codeless testing,
+                mobile app, cross-browser, visual UI testing, and more with TestGrid.
+                 It is a highly secure and scalable software testing tool that offers extensive
+                  integration with CI/CD pipelines for continuous testing. 
+
+                 <br>Software Testing Can be Divided into Two Steps:
+               <br>Software testing mainly divides into the two parts, which is used in the Software Development Process:
+
+           <br>Verification: This step involves checking if the software is doing what is supposed to do. Its like asking,
+            "Are we building the product the right way?"
+            
+
+  </p>
+  <script>
+    function showForm(type) {
+      const form = document.getElementById('testForm');
+      const title = document.getElementById('formTitle');
+      const testTypeInput = document.getElementById('testType');
+
+      form.style.display = 'block';
+
+      if (type === 'manual') {
+        testTypeInput.value = 'Manual Testing';
+        title.textContent = 'Manual Testing Request';
+      } else if (type === 'automation') {
+        testTypeInput.value = 'Automation Testing';
+        title.textContent = 'Automation Testing Request';
+      } else if (type === 'performance') {
+        testTypeInput.value = 'Performance Testing';
+        title.textContent = 'Performance Testing Request';
+      }
+
+      document.getElementById('message').textContent = '';
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const testType = document.getElementById('testType').value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const details = document.getElementById('details').value;
+
+      const data = `Test Type: ${testType}\nName: ${name}\nEmail: ${email}\nDetails: ${details}`;
+      const blob = new Blob([data], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${testType.replace(' ', '_')}_request.txt`;
+      link.click();
+
+      document.getElementById('message').textContent = 'Your request has been saved!';
+      event.target.reset();
+      setTimeout(() => {
+        document.getElementById('testForm').style.display = 'none';
+        document.getElementById('message').textContent = '';
+      }, 3000);
+    }
+  </script>
+</main>   
+</head>
+<body>
+   <div>
+  <footer style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+  <h6>TechPlatform.in</h6>
+  <img src=" images/aboutlogo.jpg" alt="" style="height: 50px;">
+  </footer>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechPlatform.in</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #84d78d;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-image: url('images/boutlogo.jpg'); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      color: rgb(197, 17, 17);
+      animation: fadeIn 2s ease-in-out;
+      font-size: 40px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      margin: 0;
+    }
+
+    .logo-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    main {
+      display: flex;
+      align-items: start;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+      background-color: #f4f4f4;
+    }
+
+    main img {
+      height: 350px;
+      width: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    main p {
+      max-width: 700px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Cards styling */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      max-width: 500px;
+      width: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .icon {
+      font-size: 40px;
+      color: #4CAF50;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #003366;
+      margin-bottom: 15px;
+    }
+
+    .card p, .card li {
+      color: #444;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #1a6b3d;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    ul li:hover {
+      color: #4CAF50;
+      transform: translateX(5px);
+    }
+
+    .people {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .person {
+      text-align: center;
+      width: 80px;
+    }
+
+    .person img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #4CAF50;
+    }
+
+    .person-name {
+      margin-top: 5px;
+      font-size: 0.9em;
+      color: #333;
+    }
+
+    .job-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .job-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f0f9f2;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .job-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-item span {
+      font-size: 1em;
+      font-weight: 500;
+      color: #1a6b3d;
+    }
+
+    .job-item button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .job-item button:hover {
+      background-color: #388e3c;
+    }
+
+    .job-form {
+      display: none;
+      flex-direction: column;
+      margin-top: 10px;
+      gap: 10px;
+      background: #eefaf0;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .job-form input,
+    .job-form textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #c8e6c9;
+      border-radius: 5px;
+      font-size: 0.9em;
+    }
+
+    .job-form textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    .submit-btn {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #388e3c;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: crimson;
+    }
+
+    footer h6 {
+      font-size: 20px;
+      color: white;
+      margin: 10px;
+    }
+
+    footer img {
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo-link"><h2>Welcome to TechPlatform.in - About Us</h2></a>
+    <img src="images/aboutlogo.jpg" alt="Logo" style="height: 100px;">
+  </header>
+
+  <main>
+    <img src="images/Techplatfrom.jpg" alt="TechPlatFrom.in">
+    <p>
+      In a company introduction, mentioning a <strong>tech platform</strong> typically refers to the infrastructure,
+      tools, and technologies that power operations and services.
+      A tech platform is the technical backbone of a company, providing the necessary components for
+      software development, data storage, processing, and various business functions. It's like a building's foundation,
+      supporting all the structures above it
+       A company might describe its tech platform as a "cloud-based platform" that enables secure data storage, analytics, 
+       and application development using technologies like AI and machine learning.
+      .<br><br>
+      <strong>Why it's important:</strong><br>
+    
+        <strong>Scalability:</strong> It allows the company to handle increasing workloads and user demands.
+        <strong>Innovation:</strong> It provides the tools and infrastructure for developing new products, services, and features.
+        <strong>Efficiency:</strong> It automates processes, improves data management, and reduces operational costs.
+        <strong>Security:</strong> It protects sensitive data and ensures the integrity of the system.
+     
+    </p>
+  </main>
+
+  <div class="card-container">
+    <!-- Tech Platform Card -->
+    <div class="card">
+      <div class="icon">💻</div>
+      <h3>Our Tech Platform</h3>
+      <p>
+        Mentioning a <span class="highlight">tech platform</span> typically refers to the infrastructure, tools, and technologies that power operations and services.
+      </p>
+      <p><span class="highlight">Why it's important:</span></p>
+      <ul>
+        <li><strong>Scalability:</strong> Handle growing demands.</li>
+        <li><strong>Innovation:</strong> Build and launch faster.</li>
+        <li><strong>Efficiency:</strong> Automate and optimize.</li>
+        <li><strong>Security:</strong> Protect sensitive data.</li>
+      </ul>
+      <p><span class="highlight">Example:</span> A cloud-based platform using AI for real-time analytics.</p>
+    </div>
+
+    <!-- Leadership Card -->
+    <div class="card">
+      <div class="icon">🧑‍💼</div>
+      <h3>Leadership</h3>
+      <p>
+        Strong <span class="highlight">leadership</span> defines direction, inspires teams, and sustains long-term success.
+      </p>
+      <ul>
+        <li><strong>Vision:</strong> Charting a clear strategic path.</li>
+        <li><strong>Integrity:</strong> Building trust and accountability.</li>
+        <li><strong>Communication:</strong> Inspiring and aligning teams.</li>
+        <li><strong>Empowerment:</strong> Enabling team ownership and growth.</li>
+      </ul>
+      <div class="people">
+        <div class="person">
+          <img src="images/photo m jpg.jpeg" alt="CEO">
+          <div class="person-name">John (CEO)</div>
+        </div>
+        <div class="person">
+          <img src="images/photo3.jpg" alt="CTO">
+          <div class="person-name">Emma (CTO)</div>
+        </div>
+        <div class="person">
+          <img src="images/photo m jpg.jpeg" alt="COO">
+          <div class="person-name">Liam (COO)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Investors Card -->
+    <div class="card">
+      <div class="icon">💰</div>
+      <h3>Investors</h3>
+      <p>
+        <span class="highlight">Investors</span> are key stakeholders who provide the capital and confidence to fuel our growth and innovation.
+      </p>
+      <ul>
+        <li><strong>Trust:</strong> A transparent, trustworthy company attracts investment.</li>
+        <li><strong>Growth:</strong> Funding accelerates R&D, hiring, and market expansion.</li>
+        <li><strong>Returns:</strong> A solid strategy and performance drive value for investors.</li>
+      </ul>
+      <div class="people">
+        <div class="person">
+          <img src="images/invest m jpg.jpeg" alt="Investor 1">
+          <div class="person-name">Alice</div>
+        </div>
+        <div class="person">
+          <img src="images/invest2 m jpg.jpg" alt="Investor 2">
+          <div class="person-name">Bob</div>
+        </div>
+        <div class="person">
+          <img src="images/inverst3 f jpg.jpeg" alt="Investor 3">
+          <div class="person-name">Charlie</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Open Positions Card -->
+    
+    <div class="card">
+    <div class="icon">📢</div>
+    <h3>Open Positions</h3>
+    <p>We’re hiring talented individuals across departments. Explore roles and grow with us!</p>
+
+    <div class="job-list">
+      
+      <div class="job-item">
+        <span>📞 Voice Process</span>
+        <button onclick="toggleForm('form1')">Apply</button>
+      </div>
+      <div id="form1" class="job-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email Address">
+        <input type="file">
+        <textarea placeholder="Why are you a good fit?"></textarea>
+        <button class="submit-btn">Submit</button>
+      </div>
+
+      
+      <div class="job-item">
+        <span>💬 Non-Voice Process</span>
+        <button onclick="toggleForm('form2')">Apply</button>
+      </div>
+      <div id="form2" class="job-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email Address">
+        <input type="file">
+        <textarea placeholder="Why are you a good fit?"></textarea>
+        <button class="submit-btn">Submit</button>
+      </div>
+      <div class="job-item">
+        <span>🧪 Testing / QA</span>
+        <button onclick="toggleForm('form3')">Apply</button>
+      </div>
+      <div id="form3" class="job-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email Address">
+        <input type="file">
+        <textarea placeholder="Why are you a good fit?"></textarea>
+        <button class="submit-btn">Submit</button>
+      </div>
+
+    
+      <div class="job-item">
+        <span>💻 Software Development</span>
+        <button onclick="toggleForm('form4')">Apply</button>
+      </div>
+      <div id="form4" class="job-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email Address">
+        <input type="file">
+        <textarea placeholder="Why are you a good fit?"></textarea>
+        <button class="submit-btn">Submit</button>
+      </div>
+    </div>
+  </div>
+      <script>
+  function toggleForm(id) {
+    const form = document.getElementById(id);
+    if (form.style.display === "flex") {
+      form.style.display = "none";
+    } else {
+      document.querySelectorAll('.job-form').forEach(f => f.style.display = 'none');
+      form.style.display = "flex";
+    }
+  }
+
+  // Show message and hide form after submit
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".submit-btn");
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault(); // stop default form behavior
+
+        // Show success message
+        alert("✅ Application submitted successfully!");
+
+        // Hide the form after message
+        const form = btn.closest('.job-form');
+        if (form) {
+          form.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
+
