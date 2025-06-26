@@ -1,1 +1,5 @@
 
+User-agent: *
+Allow: /
+Disallow: /
+Sitemap: https://himabindusingiri.github.io/Techplatform.in/sitemap.xml
