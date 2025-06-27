@@ -1,57 +1,4 @@
-<!--<!DOCTYPE html>
-<html >
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechPlatform.in</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-     <h2> Contact Form </h2>
-    <div class="contact-container">
-            <form action: class="contact-left">
-                <div class="contact-left-title">
-                    <h2>Contact us </h2>
-                    <hr>
-                </div>
-                <input type="text" name="name" placeholder="Your Name "class="contact-inputs" required>
-                <input type="email" name="email" placeholder="Your email "class="contact-inputs" required>
-                <textarea name="massage" placeholder="Entre Your Message " class="contact-inputs" required></textarea>
-                 <button type="submit"> submit</button>
 
-            </form>
-        </div>
-        <div class="contact-right">
-
-        </div>
-    </div>
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent form from submitting
-
-      // Get form values
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
-
-      // Create an object to store
-      const contact = {
-        name: name,
-        email: email,
-        message: message
-      };
-
-      // Convert to JSON string and save in localStorage
-      localStorage.setItem('contactFormData', JSON.stringify(contact));
-
-      alert('Form data saved to local storage!');
-      
-      // Optional: clear the form
-      document.getElementById('contactForm').reset();
-    });
-  </script>
-</body>
-</html>-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +12,7 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
-      background-color: rgb(66, 228, 128);
+         background-color:cadetblue;
     }
     .contact-container {
       display: flex;
