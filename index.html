@@ -324,49 +324,37 @@
       color: var(--primary-color);
       text-decoration: underline;
     }
-    
-    /* Table Section */
-    .table-section {
-      margin: 3.5rem auto; /* Increased margin */
-      max-width: 1500px;
-      overflow-x: auto;
-    }
-    
-    .table-section h1 {
-      text-align: center;
-      margin-bottom: 2rem; /* Increased margin */
-      color: var(--dark-text);
-      font-size: 2rem; /* Increased from 1.8rem */
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0; /* Increased margin */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      font-size: 1.1rem; /* Increased table font size */
-    }
-    
-    th, td {
-      padding: 1.2rem; /* Increased padding */
-      text-align: center;
-      border: 1px solid #ddd;
-    }
-    
-    th {
-      background-color: var(--primary-color);
-      color: white;
-      font-weight: 600;
-      font-size: 1.2rem; /* Increased header font size */
-    }
-    
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-    
-    tr:hover {
-      background-color: #e9e9e9;
-    }
+    .video-section {
+  margin: 3rem auto;
+  text-align: center;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+}
+
+.video-section h2 {
+  color: #1e3c72;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.video-section video {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-section video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+
     
     /* Footer */
     footer {
@@ -604,7 +592,7 @@
         <div class="feature-icon">
           <i class="fas fa-shield-alt"></i>
         </div>
-        <h3>Secure Platform</h3>
+          <a href="secure.html" class="no-underline"><h3>Secure Platform</h3></a>
         <p>Enterprise-grade security with end-to-end encryption and regular security audits.</p>
       </div>
       
@@ -612,7 +600,7 @@
         <div class="feature-icon">
           <i class="fas fa-rocket"></i>
         </div>
-        <h3>High Performance</h3>
+        <a href="performance.html" class="no-underline"><h3>High Performance</h3> </a>
         <p>Optimized infrastructure that delivers blazing fast response times.</p>
       </div>
       
@@ -628,7 +616,7 @@
         <div class="feature-icon">
           <i class="fas fa-chart-line"></i>
         </div>
-        <h3>Scalable Solutions</h3>
+           <a href="Scalable.html" class="no-underline"> <h3>Scalable Solutions</h3></a>
         <p>Grow your business without worrying about infrastructure limitations.</p>
       </div>
     </section>
@@ -667,25 +655,15 @@
       </div>
     </section>
     
-    <!-- Table Section with larger text -->
-    <div class="table-section">
-      <h1>Details Table</h1>
-      <table>
-        <tr>
-          <th>Job Roles</th>
-          <th>Experience</th>
-          <th>Package</th>
-          <th>Location</th>
-        </tr>
-        <tr>
-          <td>Testing</td>
-          <td>5 years</td>
-          <td>10 LPA</td>
-          <td>Hyderabad</td>
-        </tr>
-      </table>
-    </div>
-  </div>
+    <section class="video-section">
+  <h2>Techplatform.in Introduction</h2>
+  <video controls>
+    <source src="voice ppt .mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+
 
   <!-- Footer with larger text -->
   <footer>
