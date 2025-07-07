@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Platform Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #f3e5f5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .form-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 550px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-box h2 {
+      text-align: center;
+      color: #6a1b9a;
+      margin-bottom: 20px;
+      font-size: 26px;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 22px;
+    }
+
+    .form-group i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 12px 12px 40px;
+      font-size: 15px;
+      border: 1.5px solid #ccc;
+      border-radius: 12px;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #6a1b9a;
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .form-submit button {
+      width: 100%;
+      background: linear-gradient(to right, #6a1b9a, #8e24aa);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .form-submit button:hover {
+      background: linear-gradient(to right, #5e1783, #7b1fa2);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .form-actions button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      color: white;
+      border-radius: 12px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .form-actions #downloadBtn {
+      background-color: #1976d2;
+    }
+
+    .form-actions #viewBtn {
+      background-color: #009688;
+    }
+
+    .secure-note {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 16px;
+      color: #555;
+    }
+
+    /* Toast style */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      border-radius: 12px;
+      padding: 16px;
+      position: fixed;
+      z-index: 999;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+      from { bottom: 0; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+
+    @keyframes fadeout {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: 0; opacity: 0; }
+    }
+
+    /* View message box */
+    #viewData {
+      display: none;
+      margin-top: 20px;
+      max-width: 550px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      white-space: pre-wrap;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    @media (max-width: 600px) {
+      .form-box {
+        padding: 25px 20px;
+      }
+
+      .form-box h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form class="form-box" id="secureForm">
+    <h2><i class="fas fa-shield-alt"></i> Secure Platform Form</h2>
+
+    <div class="form-group">
+      <i class="fas fa-user"></i>
+      <input type="text" name="fullname" placeholder="Full Name" required>
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-envelope"></i>
+      <input type="email" name="email" placeholder="Email Address" required>
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-phone"></i>
+      <input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-tools"></i>
+      <select name="service" required>
+        <option value="">-- Choose a Service --</option>
+        <option value="voice">Voice Process</option>
+        <option value="nonvoice">Non-Voice</option>
+        <option value="testing">Testing</option>
+        <option value="development">Software Development</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <i class="fas fa-comment-dots"></i>
+      <textarea name="message" rows="4" placeholder="Describe your requirement..." required></textarea>
+    </div>
+
+    <div class="form-submit">
+      <button type="submit"><i class="fas fa-paper-plane"></i> Submit Secure Request</button>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" id="downloadBtn"><i class="fas fa-download"></i> Download Data</button>
+      <button type="button" id="viewBtn"><i class="fas fa-eye"></i> View Messages</button>
+    </div>
+
+    <p class="secure-note"><i class="fas fa-lock"></i> Your data is encrypted and 100% secure.</p>
+  </form>
+
+  <!-- Toast -->
+  <div id="toast">✅ Your data is secure</div>
+
+  <!-- View Submitted Data -->
+  <div id="viewData"></div>
+
+  <script>
+    let latestData = "";
+
+    document.getElementById("secureForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const fullname = form.fullname.value;
+      const email = form.email.value;
+      const phone = form.phone.value;
+      const service = form.service.value;
+      const message = form.message.value;
+
+      latestData = `Full Name: ${fullname}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`;
+
+      // Show toast
+      const toast = document.getElementById("toast");
+      toast.className = "show";
+      setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+      }, 3000);
+
+      // Reset form
+      form.reset();
+    });
+
+    // Download button
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+      if (!latestData) return alert("No data available. Please submit the form first.");
+      const blob = new Blob([latestData], { type: "text/plain" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "form-data.txt";
+      link.click();
+    });
+
+    // View message button
+    document.getElementById("viewBtn").addEventListener("click", function () {
+      if (!latestData) return alert("No data available. Please submit the form first.");
+      const viewBox = document.getElementById("viewData");
+      viewBox.innerText = latestData;
+      viewBox.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>

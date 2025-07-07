@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Related Websites</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #f3e5f5, #e1f5fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .related-sites {
+      max-width: 750px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 35px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .related-sites h2 {
+      text-align: center;
+      color: #4a148c;
+      font-size: 28px;
+      margin-bottom: 30px;
+      position: relative;
+      animation: fadeSlideIn 1s ease-out;
+    }
+
+    .related-sites h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #ba68c8;
+      margin: 10px auto 0;
+      border-radius: 4px;
+    }
+
+    @keyframes fadeSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .site-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 16px 0;
+      padding: 16px 20px;
+      background: #fce4ec;
+      border-left: 6px solid #ec407a;
+      text-decoration: none;
+      color: #ad1457;
+      font-weight: 600;
+      border-radius: 10px;
+      transition: all 0.35s ease;
+      box-shadow: 0 4px 12px rgba(236, 64, 122, 0.08);
+    }
+
+    .site-link:nth-child(3) {
+      background: #e3f2fd;
+      border-left-color: #42a5f5;
+      color: #1565c0;
+    }
+
+    .site-link:nth-child(4) {
+      background: #f1f8e9;
+      border-left-color: #66bb6a;
+      color: #2e7d32;
+    }
+
+    .site-link i {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .site-link:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .site-link:hover i {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    @media (max-width: 600px) {
+      .related-sites {
+        padding: 25px 20px;
+      }
+
+      .related-sites h2 {
+        font-size: 24px;
+      }
+
+      .site-link {
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="related-sites">
+  <h2><i class="fas fa-link"></i> Related Websites</h2>
+
+  <a class="site-link" href="https://www.thetechplatform.com/" target="_blank">
+    <i class="fas fa-globe"></i> www.thetechplatform.com
+  </a>
+
+  <a class="site-link" href="https://techplatforms.com/" target="_blank">
+    <i class="fas fa-network-wired"></i> techplatforms
+  </a>
+
+  <a class="site-link" href="https://www.founderjar.com/types-of-technology-platforms/" target="_blank">
+    <i class="fas fa-lightbulb"></i> founderjar.com - Technology Platforms
+  </a>
+</div>
+
+</body>
+</html>

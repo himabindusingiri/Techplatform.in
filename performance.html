@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🚀 Website Performance Report</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c4f163;
+      --secondary: #3bcaf6;
+      --background: #eef2f7;
+      --glass: rgba(255, 255, 255, 0.2);
+      --text: #111827;
+      --blur: 16px;
+      --radius: 20px;
+    }
+
+    [data-theme="dark"] {
+      --background: #0f172a;
+      --glass: rgba(255, 255, 255, 0.05);
+      --text: #e2e8f0;
+    }
+
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to right, #e0f2fe, #fef9c3);
+      background-attachment: fixed;
+      color: var(--text);
+      padding-bottom: 100px;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.4em;
+      margin-bottom: 5px;
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5em;
+      background: var(--secondary);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(var(--blur));
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 30px;
+    }
+
+    .circle {
+      position: relative;
+      width: 160px;
+      height: 160px;
+    }
+
+    .circle svg {
+      transform: rotate(-90deg);
+    }
+
+    .circle circle {
+      fill: none;
+      stroke-width: 15;
+      stroke-linecap: round;
+    }
+
+    .circle-bg { stroke: #e5e7eb; }
+
+    .circle-progress {
+      stroke: var(--secondary);
+      stroke-dasharray: 440;
+      stroke-dashoffset: 440;
+      transition: stroke-dashoffset 1s ease;
+    }
+
+    .circle-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.6em;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background: var(--secondary);
+      color: white;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    canvas {
+      margin-top: 30px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 60px;
+      color: #555;
+    }
+
+    details {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #ddd;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .metrics {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="toggle-theme" onclick="toggleTheme()">🌙</div>
+
+<header>
+  <h1>🚀 Performance Report</h1>
+  <p>for <strong>https://himabindusingiri.github.io/Techplatform.in/</strong></p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Performance Scores</h2>
+    <div class="metrics">
+      <div class="circle" data-percent="90">
+        <svg width="160" height="160">
+          <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
+          <circle class="circle-progress" cx="80" cy="80" r="70"></circle>
+        </svg>
+        <div class="circle-text">90%</div>
+        <p style="text-align:center">Speed</p>
+      </div>
+      <div class="circle" data-percent="95">
+        <svg width="160" height="160">
+          <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
+          <circle class="circle-progress" cx="80" cy="80" r="70"></circle>
+        </svg>
+        <div class="circle-text">95%</div>
+        <p style="text-align:center">SEO</p>
+      </div>
+      <div class="circle" data-percent="88">
+        <svg width="160" height="160">
+          <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
+          <circle class="circle-progress" cx="80" cy="80" r="70"></circle>
+        </svg>
+        <div class="circle-text">88%</div>
+        <p style="text-align:center">Accessibility</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Detailed Metrics</h2>
+    <table>
+      <tr><th>Metric</th><th>Value</th><th>Status</th></tr>
+      <tr><td>Load Time</td><td>1.8s</td><td>Excellent</td></tr>
+      <tr><td>FCP</td><td>1.1s</td><td>Good</td></tr>
+      <tr><td>Page Size</td><td>950 KB</td><td>Optimized</td></tr>
+      <tr><td>Requests</td><td>29</td><td>Minimal</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Visual Overview</h2>
+    <canvas id="chartCanvas" height="220"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Recommendations</h2>
+    <details>
+      <summary>View Suggestions</summary>
+      <ul>
+        <li>Minify CSS and JS files.</li>
+        <li>Lazy-load non-critical images.</li>
+        <li>Enable Gzip compression on the server.</li>
+        <li>Preload key resources for faster rendering.</li>
+      </ul>
+    </details>
+  </div>
+
+</div>
+
+<footer>
+  Generated on July 7, 2025 — TechPlatform Creative Report ✨
+</footer>
+
+<script>
+  // Theme toggling
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute("data-theme");
+    document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    document.querySelector(".toggle-theme").textContent = current === "dark" ? "🌙" : "☀️";
+  }
+
+  // Animate circle progress
+  document.querySelectorAll('.circle').forEach(circle => {
+    const percent = circle.getAttribute('data-percent');
+    const radius = 70;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (percent / 100) * circumference;
+    circle.querySelector('.circle-progress').style.strokeDasharray = `${circumference}`;
+    circle.querySelector('.circle-progress').style.strokeDashoffset = `${offset}`;
+  });
+
+  // Chart
+  const ctx = document.getElementById('chartCanvas').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Speed', 'SEO', 'Accessibility', 'Load Time', 'Requests'],
+      datasets: [{
+        label: 'Score',
+        data: [90, 95, 88, 80, 70],
+        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: { y: { beginAtZero: true, max: 100 } },
+      plugins: { legend: { display: false } }
+    }
+  });
+</script>
+
+</body>
+</html>
